@@ -1,0 +1,23 @@
+﻿@using GerenciadorDePessoas.Models
+@model List<Pessoa>
+
+<h1>Detales do usuario</h1>
+<h2>@ViewBag.TextDescrição</h2>
+
+@foreach (var pessoa in Model)
+{
+    <p>Id: @pessoa.Id</p>
+    <p>Nome: @pessoa.Id</p>
+    <p>Sobrenome: @pessoa.Id</p>
+    <p>Data de Nascimento: @pessoa.Id</p>
+    <br />
+
+    if (pessoa.Sobrenome != "Silva")
+    {
+        <p>@pessoa.Nome @pessoa.Sobrenome não pertence a familia silva</p>
+    }
+}
+
+<p>
+    @ViewBag.DataAtual
+</p>
