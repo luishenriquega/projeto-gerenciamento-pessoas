@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GerenciadorDePessoas.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GerenciamentoDePessoas.Data
 {
-    public class GerenciamentoDePessoasContext : Controller
+    public class GerenciamentoDePessoasContext : DbContext
     {
-        public IActionResult Index()
+        public GerenciamentoDePessoasContext(DbContextOptions<GerenciamentoDePessoasContext> options) : base(options)
         {
-            return View();
         }
+
+        public DbSet<Pessoa> Pessoas { get; set; }
     }
 }

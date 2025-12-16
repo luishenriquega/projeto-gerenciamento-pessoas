@@ -1,3 +1,6 @@
+using GerenciamentoDePessoas.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace GerenciamentoDePessoas
 {
     public class Program
@@ -6,6 +9,8 @@ namespace GerenciamentoDePessoas
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<GerenciamentoDePessoasContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("GerenciamentoDePessoasContext")));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
