@@ -1,4 +1,5 @@
 using GerenciamentoDePessoas.Data;
+using GerenciamentoDePessoas.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace GerenciamentoDePessoas
@@ -13,6 +14,8 @@ namespace GerenciamentoDePessoas
                 options.UseSqlServer(builder.Configuration.GetConnectionString("GerenciamentoDePessoasContext")));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IPessoaService, PessoaService>();
 
             var app = builder.Build();
 
